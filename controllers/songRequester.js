@@ -35,6 +35,16 @@ const songRequest = async (req, res) => {
       console.log("✅ Using cached file:", outputFile);
     } else {
       console.log("🔽 Downloading audio to temporary file...");
+      const metadata = await youtubeDl(ytUrl, {
+        dumpSingleJson: true,
+        noWarnings: true,
+        preferFreeFormats: true,
+      });
+
+      const duration = metadata.duration;
+      console.log("🎵 Duration (sec):", duration);
+
+      // Now download
       await youtubeDl(ytUrl, {
         format: "worstaudio[ext=webm]",
         output: outputFile,
