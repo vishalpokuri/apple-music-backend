@@ -16,7 +16,7 @@ app.use(
 //align the endpoints with the routes
 app.use("/api/song", songRoutes);
 app.get("/api", (req, res) => {
-  res.json({
+  return res.json({
     status: 200,
     message: "System operational",
   });

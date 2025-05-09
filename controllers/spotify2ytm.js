@@ -1,7 +1,13 @@
 export const spotify2ytm = async (req, res) => {
   const { spotifyURL } = req.query;
   const response = await fetch(
-    `https://ytm2spotify.com/convert?url=${spotifyURL}&to_service=youtube_ytm`
+    `https://ytm2spotify.com/convert?url=${spotifyURL}&to_service=youtube_ytm`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    }
   );
   const youtubeURL = await response.json();
 
