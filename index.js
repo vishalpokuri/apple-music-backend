@@ -22,7 +22,7 @@ app.get("/api", (req, res) => {
   });
 });
 
-const PORT = 3000;
+const PORT = 3010;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
